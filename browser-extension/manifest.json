@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "unboxit@yourdomain.com",
+      "strict_min_version": "109.0"
+    }
+  },
+  "name": "unBoxit",
+  "version": "1.4",
+  "description": "Opens Box web links directly on your Mac's Finder.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "host_permissions": [
+    "*://*.box.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.box.com/*", "*://box.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
