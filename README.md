@@ -1,6 +1,6 @@
 # unBoxit <img src="browser-extension/Icon.png" alt="unBoxit Icon" height="40">
 
-An open-source ecosystem designed to seamlessly bridge the gap between Box.com web links and your local macOS file system. unBoxit securely routes Box web URLs directly to your local Box Drive, saving you from navigating the web interface.
+An open-source ecosystem designed to seamlessly bridge the gap between Box.com web links and your local macOS file system. unBoxit securely routes Box web URLs directly to your local Box Drive, opening them in finder and saving you from navigating the folder tree locally.
 
 ## Prerequisites & System Requirements
 *   **Operating System:** macOS (the local handler relies on AppleScript, Spotlight, and the native `open` command).
@@ -11,21 +11,31 @@ An open-source ecosystem designed to seamlessly bridge the gap between Box.com w
 ## System Architecture
 unBoxit consists of three independent components that work together securely without requiring a dedicated database or user OAuth flows:
 
-*   **Browser Extension:** Injects an "Open in Finder" button directly into the Box.com UI.
+*   **Browser Extension:** Injects an "Open in Finder" button directly into the Box.com folder UI.
 *   **macOS Handler:** A local protocol handler that catches `boxlocal://` links and safely opens them via Finder.
-*   **Slack Bot:** Intercepts Box links shared in Slack and unfurls them with actionable native Finder buttons.
+*   **Slack Bot:** Intercepts Box links shared in Slack and unfurls them with actionable native Slack buttons.
 
 ---
 
 ## 1. Browser Extension
 *Routes clicks from the Box web app to your local machine.*
 
-### Installation (Chrome/Edge)
-1. Open your browser and navigate to `chrome://extensions/` (or `edge://extensions/`).
+### Installation (Chrome & Firefox)
+I have not tested this in other browsers. To use this extension, you will need to load it directly from the source code.
+
+**For Google Chrome:**
+1. Open Chrome and navigate to `chrome://extensions/`.
 2. Toggle **Developer mode** in the top right corner.
 3. Click **Load unpacked** in the top left.
 4. Select the `/browser-extension` folder from this repository.
-5. Navigate to any Box.com folder to see the new "Open in Finder" button.
+
+**For Mozilla Firefox:**
+1. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
+2. Click the **Load Temporary Add-on...** button.
+3. Navigate to the `/browser-extension` folder and select the `manifest.json` file.
+
+**Usage:**
+Once installed, navigate to any Box.com folder to see the new "Open in Finder" button.
 
 ---
 
