@@ -1,6 +1,14 @@
+<img src="browser-extension/Icon.png" alt="unBoxit Icon" width="120" align="right">
+
 # unBoxit 📦
 
 An open-source ecosystem designed to seamlessly bridge the gap between Box.com web links and your local macOS file system. unBoxit securely routes Box web URLs directly to your local Box Drive, saving you from navigating the web interface.
+
+## Prerequisites & System Requirements
+*   **Operating System:** macOS (the local handler relies on AppleScript, Spotlight, and the native `open` command).
+*   **Cloud Storage:** The [Box Drive](https://www.box.com/drive) desktop application must be installed and running.
+*   **Browser:** Google Chrome, Microsoft Edge, or Mozilla Firefox.
+*   **Slack Bot:** Node.js v20 or higher.
 
 ## System Architecture
 unBoxit consists of three independent components that work together securely without requiring a dedicated database or user OAuth flows:
@@ -14,8 +22,8 @@ unBoxit consists of three independent components that work together securely wit
 ## 1. Browser Extension
 *Routes clicks from the Box web app to your local machine.*
 
-### Installation (Chrome)
-1. Open Chrome and navigate to `chrome://extensions/`
+### Installation (Chrome/Edge)
+1. Open your browser and navigate to `chrome://extensions/` (or `edge://extensions/`).
 2. Toggle **Developer mode** in the top right corner.
 3. Click **Load unpacked** in the top left.
 4. Select the `/browser-extension` folder from this repository.
