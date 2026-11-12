@@ -10,10 +10,10 @@
   "version": "1.4",
   "description": "Opens Box web links directly on your Mac's Finder.",
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
+    "16": "Icon.png",
+    "48": "Icon.png",
+    "128": "Icon.png"
+  }
   "host_permissions": [
     "*://*.box.com/*"
   ],
