@@ -1,0 +1,18 @@
+{
+  "name": "unboxit-slack-bot",
+  "version": "1.0.0",
+  "description": "A Slack bot companion for unBoxit that routes web links to local macOS Finder paths.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": ["slack", "bot", "box", "macos", "finder"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@slack/bolt": "^5.0.0",
+    "box-node-sdk": "^10.14.0",
+    "dotenv": "^17.4.2"
+  }
+}
