@@ -31,7 +31,47 @@ Because macOS requires compiled applications to handle custom URL schemes, you w
 
 1. Open the **Script Editor** app on your Mac (search via Spotlight).
 2. Create a new document and paste the following AppleScript:
-   ```applescript
-   on open location this_URL
-       do shell script "/bin/bash ~/path/to/your/repo/macos-handler/handler.sh '" & this_URL & "'"
-   end open location
+
+```applescript
+on open location this_URL
+    do shell script "/bin/bash ~/path/to/your/repo/macos-handler/handler.sh '" & this_URL & "'"
+end open location
+```
+
+3. Go to **File > Export**.
+4. Set the File Format to **Application** and check the **Stay open after run handler** box.
+5. Name it `unBoxit.app` and save it to your `/Applications` folder.
+6. Right-click `unBoxit.app` in Finder, select **Show Package Contents**, and open `Contents/Info.plist` in a text editor.
+7. Add the URL scheme registration right before the final `</dict>` tag:
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLName</key>
+        <string>unBoxit Local Handler</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>boxlocal</string>
+        </array>
+    </dict>
+</array>
+```
+
+8. Run the app once to register the `boxlocal://` protocol with your Mac.
+
+---
+
+## 3. Slack Bot Companion
+*Unfurls Box links in your workspace with native local application triggers.*
+
+### Setup
+1. Create a new Slack app at [api.slack.com](https://api.slack.com/) and enable Socket Mode.
+2. In the Box Developer Console, create a new Custom App with **Client Credentials Grant (CCG)** authentication.
+3. Ensure the Box bot is **not** scoped with "Read all files and folders" to prevent IDOR data leaks.
+
+### Deployment
+1. Navigate to the `/slack-bot` directory in your terminal.
+2. Run `npm install` to build the dependencies.
+3. Rename `.env.example` to `.env` and fill in your specific Slack and Box API credentials.
+4. Run `npm start` to boot the bot.
