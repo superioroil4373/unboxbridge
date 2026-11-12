@@ -1,6 +1,4 @@
-<img src="browser-extension/Icon.png" alt="unBoxit Icon" width="120" align="right">
-
-# unBoxit 📦
+# unBoxit <img src="browser-extension/Icon.png" alt="unBoxit Icon" height="40">
 
 An open-source ecosystem designed to seamlessly bridge the gap between Box.com web links and your local macOS file system. unBoxit securely routes Box web URLs directly to your local Box Drive, saving you from navigating the web interface.
 
