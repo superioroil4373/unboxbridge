@@ -84,7 +84,7 @@ end open location
 ### Setup
 1. Create a new Slack app at [api.slack.com](https://api.slack.com/) and enable Socket Mode.
 2. In the Box Developer Console, create a new Custom App with **Client Credentials Grant (CCG)** authentication.
-3. Ensure the Box bot is **not** scoped with "Read all files and folders" to prevent IDOR data leaks.
+3. Ensure the Box app is scoped with **Read all files and folders** so it can successfully fetch metadata to unfurl links. *(Note: Actual file security is natively enforced by each user's local Box Drive permissions).*
 
 ### Deployment
 1. Navigate to the `/slack-bot` directory in your terminal.
